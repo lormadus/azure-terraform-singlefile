@@ -75,7 +75,7 @@ resource "azurerm_lb_rule" "user10-lbrule" {
     frontend_port = 80
     backend_port = 80
     backend_address_pool_id = azurerm_lb_backend_address_pool.user10-bepool.id
-    frontend_ip_configuration_name = "davidPublicIPAddress"
+    frontend_ip_configuration_name = "user10PublicIPAddress"
     probe_id = azurerm_lb_probe.user10-lb-probe.id
 }
 
@@ -145,7 +145,7 @@ resource "azurerm_network_interface" "user10-vm1-nic1" {
         name                          = "myNicConfiguration1"
         subnet_id                     = azurerm_subnet.user10-subnet1.id
         private_ip_address_allocation = "Dynamic"
-#        public_ip_address_id          = azurerm_public_ip.david-publicip.id
+#        public_ip_address_id          = azurerm_public_ip.user10-publicip.id
     }
 
     tags = {
@@ -174,14 +174,14 @@ resource "azurerm_network_interface_nat_rule_association" "natrule1" {
 
 resource "azurerm_network_interface" "user10-vm2-nic1" {
     name                = "myNIC2"
-    location = azurerm_resource_group.david-rg.location
-    resource_group_name = azurerm_resource_group.david-rg.name
+    location = azurerm_resource_group.user10-rg.location
+    resource_group_name = azurerm_resource_group.user10-rg.name
 
     ip_configuration {
         name                          = "myNicConfiguration2"
-        subnet_id                     = azurerm_subnet.david-subnet1.id
+        subnet_id                     = azurerm_subnet.user10-subnet1.id
         private_ip_address_allocation = "Dynamic"
-#        public_ip_address_id          = azurerm_public_ip.david-publicip.id
+#        public_ip_address_id          = azurerm_public_ip.user10-publicip.id
     }
 
     tags = {
