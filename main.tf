@@ -218,7 +218,7 @@ resource "azurerm_availability_set" "avset" {
 
 
 resource "azurerm_storage_account" "user10-diag-storage" {
-    name                = "user10-diag-storage"
+    name                = "user10diagstorage"
     resource_group_name = azurerm_resource_group.user10-rg.name
     location = azurerm_resource_group.user10-rg.location
     account_replication_type = "LRS"
